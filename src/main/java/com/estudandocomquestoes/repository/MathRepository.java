@@ -13,4 +13,6 @@ public interface MathRepository extends MongoRepository<Math, String> {
     List<Math> findBySubject(String subject);
 
     Optional<Math> findById(String id);
+
+
 }
