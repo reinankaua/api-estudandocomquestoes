@@ -19,8 +19,8 @@ public class MathController {
 
     @GetMapping
     public String apresentetion(){
-        return "Olá, Tudo bem?\n" +
-                "Temos questões disponiveis para MATEMÁTICA...\n\n" +
+        return "Olá, Tudo bem?<br>" +
+                "Temos questões disponiveis para MATEMÁTICA...<br><br>" +
                 "Para acessar as questões de MATEMÁTICA adicione '/matematica' na URL";
     }
 
