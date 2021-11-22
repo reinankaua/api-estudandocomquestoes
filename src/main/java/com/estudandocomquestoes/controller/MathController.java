@@ -11,29 +11,36 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/matematica")
+// @RequestMapping("/")
 public class MathController {
 
     @Autowired
     private MathRepository mathRepository;
 
     @GetMapping
+    public String apresentetion(){
+        return "Olá, Tudo bem?\n" +
+                "Temos questões disponiveis para MATEMÁTICA...\n\n" +
+                "Para acessar as questões de MATEMÁTICA adicione '/matematica' na URL";
+    }
+
+    @GetMapping("/matematica")
     public List<Math> listAllQuestions(){
         return mathRepository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/matematica/{id}")
     public Optional<Math> listById(@PathVariable String id){
         return mathRepository.findById(id);
     }
 
-    @GetMapping("/filter")
+    @GetMapping("/matematica/filter")
     public List<Math> listBySubject(@RequestParam("subject") String subject){
         List<Math> collect = new ArrayList<>(this.mathRepository.findBySubject(subject));
         return collect;
     }
 
-    @PostMapping
+    @PostMapping("/matematica")
     @ResponseStatus(HttpStatus.CREATED)
     public Math addQuestion(@RequestBody Math math){
         return mathRepository.save(math);
