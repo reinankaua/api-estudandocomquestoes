@@ -12,41 +12,35 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/matematica")
 public class MathController {
 
     @Autowired
     private MathRepository mathRepository;
 
     @GetMapping
-    public String apresentetion(){
-        return "Olá, Tudo bem?<br>" +
-                "Temos questões disponiveis para MATEMÁTICA...<br><br>" +
-                "Para acessar as questões de MATEMÁTICA adicione '/matematica' na URL";
-    }
-
-    @GetMapping("/matematica")
     public List<Math> listAllQuestions(){
         return mathRepository.findAll();
     }
 
-    @GetMapping("/matematica/{id}")
+    @GetMapping("/{id}")
     public Optional<Math> listById(@PathVariable String id){
         return mathRepository.findById(id);
     }
 
-    @GetMapping("/matematica/filter")
+    @GetMapping("/filter")
     public List<Math> listBySubject(@RequestParam("subject") String subject){
         List<Math> collect = new ArrayList<>(this.mathRepository.findBySubject(subject));
         return collect;
     }
 
-    @PostMapping("/matematica")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Math addQuestion(@RequestBody Math math){
         return mathRepository.save(math);
     }
 
-    @PutMapping("matematica/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Math> update(@PathVariable String id, @RequestBody Math math){
 
         if(!mathRepository.existsById(id)) {
@@ -58,7 +52,7 @@ public class MathController {
         return ResponseEntity.ok(math);
     }
 
-    @DeleteMapping("matematica/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable String id){
 
         if(!mathRepository.existsById(id)) {
