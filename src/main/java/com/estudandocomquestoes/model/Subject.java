@@ -9,14 +9,15 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Getter
 @Setter
-@Document(collection = "Geografia")
-public class Geography {
+@Document(collection = "questoes")
+public class Subject {
+
     @Id
     private String id;
 
     @Nullable
     @Field
-    private String subject;
+    private String subjectMatter;
 
     @Nullable
     @Field
@@ -45,5 +46,4 @@ public class Geography {
     @Nullable
     @Field
     private String correct;
-
 }
