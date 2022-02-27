@@ -7,6 +7,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.ArrayList;
+
 @Getter
 @Setter
 @Document(collection = "questoes")
@@ -25,23 +27,7 @@ public class Subject {
 
     @Nullable
     @Field
-    private String alternativeA;
-
-    @Nullable
-    @Field
-    private String alternativeB;
-
-    @Nullable
-    @Field
-    private String alternativeC;
-
-    @Nullable
-    @Field
-    private String alternativeD;
-
-    @Nullable
-    @Field
-    private String alternativeE;
+    private String []alternative;
 
     @Nullable
     @Field
