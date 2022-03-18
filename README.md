@@ -13,4 +13,4 @@ Tecnologias e ferramentas que foram utilizadas no processo de desenvolvimento:
 
 
 
-[Neste link](https://api-estudandocomquestoes.herokuapp.com/matematica), segue a API publicada no Heroku.
+[Neste link](https://api-estudandocomquestoes.herokuapp.com/api/questoes), segue a API publicada no Heroku.
